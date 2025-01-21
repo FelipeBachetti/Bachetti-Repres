@@ -4,14 +4,12 @@
 {% block content %}
 
 <div class="companies">
-    <div class="company">
-        <h2>Gekril</h2>
-        <img src= "https://placehold.co/600x400" />
-    </div>
-    <div class="company">
-        <h2>Formigres</h2>
-        <img src= "https://placehold.co/600x400" />
-    </div>
+    {% for empresa in empresas %}
+        <div class="company">
+            <h2>{{ empresa.nome }}</h2>
+            <img src="{{ empresa.link_imagem }}" alt="Empresa Image" class="empresa-image" />
+        </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
