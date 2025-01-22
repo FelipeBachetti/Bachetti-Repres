@@ -3,4 +3,12 @@
 
 {% block content %}
 
+<div class="tipos-page">
+    {% for tipo in tipos %}
+        <div class="tipos">
+                <div class="tipos-text">{{tipo.nome}}</div>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
