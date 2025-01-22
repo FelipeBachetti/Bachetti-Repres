@@ -3,11 +3,7 @@ from django.http import HttpResponse
 from .models import Empresa, Tipo_Produto, Produto
 
 def home(request):
-    empresas = Empresa.objects.all().values()
-    context = {
-        'empresas': empresas,
-    }
-    return render(request, 'home.html', context)
+    return render(request, 'home.html')
 
-
-
+def company_page(request):
+    return render(request, 'company_page.html')
