@@ -14,8 +14,9 @@
     </div>
 
     <div class="sidenav">
-        <a href="">Gekril</a>
-        <a href="">Formigres</a>
+        {% for empresa in empresas %}
+            <a>{{ empresa.nome }}</a>
+        {% endfor %}
     </div>
 
     <div id="content", name="content", class="content">
