@@ -64,3 +64,24 @@ body {
   height: 40%;
   object-fit: cover;
 }
+
+.tipos-page{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2%;
+  place-items: center;
+}
+
+.tipos{
+  background-color: #818181;
+  width: 50%;
+  margin-bottom: 5%;
+}
+
+.tipos-text{
+  text-align: center;
+  font-size: 2.5vw;
+}
