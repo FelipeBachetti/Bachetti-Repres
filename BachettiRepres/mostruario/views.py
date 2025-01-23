@@ -11,3 +11,10 @@ def company_page(request, id):
         'tipos': tipos,
     }
     return render(request, 'company_page.html', context)
+
+def product_page(request, id_emp, id_tip):
+    produtos = Produto.objects.filter(tipo_id=id_tip)
+    context={
+        'produtos': produtos
+    }
+    return render(request, 'product_page.html', context)

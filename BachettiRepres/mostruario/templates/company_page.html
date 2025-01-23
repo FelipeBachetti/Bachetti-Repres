@@ -6,7 +6,9 @@
 <div class="tipos-page">
     {% for tipo in tipos %}
         <div class="tipos">
+            <a href="/empresa/{{tipo.empresa_id}}/tipo/{{tipo.id}}">
                 <div class="tipos-text">{{tipo.nome}}</div>
+            </a>
         </div>
     {% endfor %}
 </div>

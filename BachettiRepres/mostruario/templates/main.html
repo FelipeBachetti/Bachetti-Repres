@@ -15,7 +15,7 @@
 
     <div class="sidenav">
         {% for empresa in empresas %}
-            <a>{{ empresa.nome }}</a>
+            <a href="/empresa/{{ empresa.id }}"> {{ empresa.nome }}</a>
         {% endfor %}
     </div>
 
