@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+{% block title %} HOME {% endblock %}
+
+{% block content %}
+
+<div class="produtos-page">
+    {% for produto in produtos %}
+        <div class="produtos">
+            <div class="tipos-text">{{produto.nome}}</div>
+            <img src="{{ produto.link_imagem }}" alt="Produto Image" class="produto-image" />
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
