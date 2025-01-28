@@ -6,7 +6,9 @@
 <div class="produtos-page">
     {% for produto in produtos %}
         <div class="produtos">
-            <div class="tipos-text">{{produto.nome}}</div>
+            <a href="/empresa/{{produto.tipo.empresa.id}}/tipo/{{produto.tipo_id}}/produto/{{produto.id}}">
+                <div class="tipos-text">{{produto.nome}}</div>
+            </a>
             <img src="{{ produto.link_imagem }}" alt="Produto Image" class="produto-image" />
         </div>
     {% endfor %}

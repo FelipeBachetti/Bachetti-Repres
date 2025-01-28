@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+{% block title %} HOME {% endblock %}
+
+{% block content %}
+
+<div class="container-cols">
+    <div class="col col-1">
+        <img src="{{ produto.link_imagem }}" alt="Produto Image" class="big-produto-image" />
+    </div>
+    <div class="col col-2">
+        <div class="produto-text">{{ produto.nome }}</div>
+    </div>
+</div>
+
+{% endblock %}
