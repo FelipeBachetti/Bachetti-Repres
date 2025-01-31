@@ -7,9 +7,9 @@
     {% for produto in produtos %}
         <div class="produtos">
             <a href="/empresa/{{produto.tipo.empresa.id}}/tipo/{{produto.tipo_id}}/produto/{{produto.id}}">
-                <div class="tipos-text">{{produto.nome}}</div>
+                <div class="produtos-text">{{produto.nome}}</div>
             </a>
-            <img src="{{ produto.link_imagem }}" alt="Produto Image" class="produto-image" />
+            <img src="{{ produto.link_imagem_principal }}" alt="Produto Image" class="produtos-image" />
         </div>
     {% endfor %}
 </div>
