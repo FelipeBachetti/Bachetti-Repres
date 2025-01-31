@@ -5,10 +5,31 @@
 
 <div class="container-cols">
     <div class="col col-1">
-        <img src="{{ produto.link_imagem }}" alt="Produto Image" class="big-produto-image" />
+        <section class="container-slider">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img id="slide-1" src={{produto.link_imagem_principal}} alt="slide 1"/>
+                    {% if produto.link_imagens_extras %}
+                        {% for imagem in produto.link_imagens_extras %}
+                            <img id="slide-{{ forloop.counter|add:1 }}" src="{{ imagem }}" alt="slide {{ forloop.counter|add:1 }}"/>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="slider-nav">
+                    <a href="#slide-1"></a>
+                    {% if produto.link_imagens_extras %}
+                        {% for imagem in produto.link_imagens_extras %}
+                            <a href="#slide-{{ forloop.counter|add:1 }}"></a>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </section>
     </div>
     <div class="col col-2">
         <div class="produto-text">{{ produto.nome }}</div>
+        <br>
+        <div class="produto-desc">{{ produto.descricao }}</div>
     </div>
 </div>
 
