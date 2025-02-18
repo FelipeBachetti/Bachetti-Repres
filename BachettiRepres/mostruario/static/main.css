@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffff;
+  background-color: #E2E0C8 !important;
   border: 0;
   margin: 0;
 }
@@ -7,42 +7,97 @@ body {
 .header {
   padding: 5px 20px;
   text-align: center;
-  background: #3b3b3b;
-  color: white;
+  background: #5C7285;
+  color: #E2E0C8;
   font-size: 1rem;
   box-sizing: border-box;
-  width: calc(100% - 25vh);
-  margin-left: 25vh;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 
 .sidenav {
   height: 100%;
-  width: 25vh;
+  width: 250px;
   position: fixed;
-  z-index:1;
-  top:0;
-  left:0;
-  background-color: #3b3b3b;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #5C7285;
   overflow-x: hidden;
-  padding-top:10vh;
+  padding-top: 2vh;
+  transition: left 0.3s ease-in-out;
 }
 
-.sidenav a{
-  padding:6px 8px 6px 16px;
+.sidenav a, .sidenav .dropdown-btn {
+  padding: 10px 15px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display:block;
+  font-size: 18px;
+  color: #E2E0C8;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
 }
 
-.sidenav a:hover{
-  color:#f1f1f1
+.sidenav a:hover, .sidenav .dropdown-btn:hover {
+  background-color: #818C78;
+}
+
+.sidenav .dropdown-container {
+  display: none;
+  background-color: #818C78;
+  padding-left: 20px;
+}
+
+.sidenav .dropdown-container a {
+  color: #E2E0C8;
+}
+
+.sidenav-toggle {
+  position: absolute;
+  top: 10px;
+  left: 260px;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #E2E0C8;
+  transition: left 0.3s ease-in-out;
+}
+
+.content {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.sidenav.closed {
+  left: -250px;
+}
+
+.content.closed {
+  margin-left: 0;
+}
+
+.header.closed {
+  margin-left: 0;
+  width: 100%;
+}
+
+.sidenav-toggle.closed {
+  left: 10px;
+}
+
+.active {
+  background-color: #575757;
 }
 
 .content{
-  display: flex;
-  margin-left: 160px;
-  margin-top: 10px;
+  margin-left: 25vh;
+  margin-top: 25px;
   padding: 0px 10px;
 }
 
@@ -55,14 +110,14 @@ body {
   margin-right: 30%;
   margin-bottom: 10px;
   padding: 5px;
-  border: 3px solid #f1f1f1;
-  background-color: #f1f1f1;
 }
 
 .empresa-image {
   width: 90%;
   height: 40%;
   object-fit: cover;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5%;
 }
 
 .tipos-page{
@@ -76,7 +131,8 @@ body {
 }
 
 .tipos{
-  background-color: #818181;
+  background-color: #5C7285;
+  border-radius: 7%;
   width: 50%;
   margin-bottom: 5%;
 }
@@ -84,6 +140,16 @@ body {
 .tipos-text{
   text-align: center;
   font-size: 2.5vw;
+  color: #E2E0C8;
+  transition: color 0.4s ease-in-out;
+}
+
+.tipos-text:hover{
+  color: #ffffff;
+}
+
+a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
 }
 
 .produtos-page{
@@ -97,21 +163,30 @@ body {
 }
 
 .produtos{
-  background-color: #818181;
+  background-color: #5C7285;
   width: 70%;
   margin-bottom: 5%;
   display: grid;
   place-items: center;
+  border-radius: 7%;
 }
 
 .produtos-text{
   text-align: center;
   font-size: 4vh;
+  color: #E2E0C8;
+  transition: color 0.4s ease-in-out;
+}
+
+.produtos-text:hover{
+  color: #ffffff;
 }
 
 .produtos-image {
-  width: 90%;
-  height: 90%;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 5%;
+  border-radius: 7%;
 }
 
 .container-cols {
@@ -133,8 +208,17 @@ body {
   flex: 1;
   font-size: 1.5rem;
   font-weight: bold;
-  padding: 10px;
+  padding: 20px;
   flex-direction: column;
+  background: #5C7285;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 60vh;
+  width: 100%; 
+  align-self: top;
+  margin-left: 5vh;
+  position: relative;
+  margin-top: 3%;
 }
 
 .big-produto-image {
@@ -143,13 +227,13 @@ body {
 }
 
 .produto-text {
-  margin-top: 5vh;
+  margin-top: 2vh;
   font-size: 3vh;
   font-weight: bold;
   align-self: flex-start;
-  text-align: flex-start;
+  text-align: center;
   width: 100%;
-  white-space: nowrap;
+  color: #fff;
 }
 
 .produto-desc {
@@ -157,6 +241,8 @@ body {
   font-weight: lighter;
   align-self: center;
   text-align: center;
+  color: #fff;
+  padding-bottom: 5px;
 }
 
 .container-slider{
