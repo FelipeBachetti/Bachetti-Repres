@@ -13,19 +13,65 @@
 <body>
 
     <div class="header">
-        <h1>Bachetti Representações</h1>
+        <img src="{% static 'logo.png' %}" width="250vh"/>
     </div>
 
-    <div class="sidenav">
+    <button class="sidenav-toggle" onclick="toggleNav()">☰</button>
+
+    <div class="sidenav" id="mySidenav">
+        <a href="{% url 'home' %}">Início</a>
         {% for empresa in empresas %}
-            <a href="/empresa/{{ empresa.id }}"> {{ empresa.nome }}</a>
+            <button class="dropdown-btn">{{ empresa.nome }} 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                {% for tipo in empresa.tipo_produto_set.all %}
+                    <a href="/empresa/{{tipo.empresa_id}}/tipo/{{tipo.id}}">{{ tipo.nome }}</a>
+                {% endfor %}
+            </div>
         {% endfor %}
+        <a href="https://wa.me/553284734389">Whatsapp</a>
     </div>
 
     <div id="content", name="content", class="content">
         {% block content %}
         {% endblock %}
     </div>
-    
+
+    <script>
+        var isOpen = true;
+
+        function toggleNav() {
+            var sidenav = document.getElementById("mySidenav");
+            var content = document.getElementById("content");
+            var header = document.querySelector(".header");
+            var toggleBtn = document.querySelector(".sidenav-toggle");
+
+            if (isOpen) {
+                sidenav.classList.add("closed");
+                content.classList.add("closed");
+                header.classList.add("closed");
+                toggleBtn.classList.add("closed");
+            } else {
+                sidenav.classList.remove("closed");
+                content.classList.remove("closed");
+                header.classList.remove("closed");
+                toggleBtn.classList.remove("closed");
+            }
+            isOpen = !isOpen;
+        }
+
+
+        // Dropdown functionality
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        for (let i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+            });
+        }
+    </script>
+
 </body>
 </html>

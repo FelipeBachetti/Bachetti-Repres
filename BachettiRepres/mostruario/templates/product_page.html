@@ -8,8 +8,8 @@
         <div class="produtos">
             <a href="/empresa/{{produto.tipo.empresa.id}}/tipo/{{produto.tipo_id}}/produto/{{produto.id}}">
                 <div class="produtos-text">{{produto.nome}}</div>
+                <img src="{{ produto.link_imagem_principal }}" alt="Produto Image" class="produtos-image" />
             </a>
-            <img src="{{ produto.link_imagem_principal }}" alt="Produto Image" class="produtos-image" />
         </div>
     {% endfor %}
 </div>
